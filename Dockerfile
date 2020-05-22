@@ -58,7 +58,7 @@ ENV PORT=3939
 ENV NODE_ENV=production
 EXPOSE 3939
 
-CMD [ "pm2-docker", "config/pm2-api.config.yaml"]
+CMD [ "pm2-docker" ]
 
 # Tell Puppeteer to skip installing Chrome. We'll be using the installed package.
 
