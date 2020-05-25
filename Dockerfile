@@ -32,9 +32,9 @@ RUN apk add --no-cache \
 
 #     && rm -rf /var/lib/apt/lists/*
 
-WORKDIR /var/opt/mof
+WORKDIR /app
 
-ADD . /var/opt/mof
+ADD . /app
 
 # Tell Puppeteer to skip installing Chrome. We'll be using the installed package.
 
@@ -53,12 +53,12 @@ RUN npm install
 # USER pptruser
 
 
-ENV CONTEXT_PATH=/mof
+ENV CONTEXT_PATH=/app
 ENV PORT=3939
 ENV NODE_ENV=production
 EXPOSE 3939
 
-CMD [ "pm2-docker" ]
+CMD pm2 start puppeteer.js
 
 # Tell Puppeteer to skip installing Chrome. We'll be using the installed package.
 
